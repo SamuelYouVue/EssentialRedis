@@ -21,18 +21,18 @@ var luaScripts = [
     "local payload = {} ",    
     "redis.call('DEL', key) ",
     "local fields = ARGV ",
-    " local field, value",
-    "for i, k in pairs(fields) do ",
-    " if i%2 == 0 then ",
-    "   value = k      ",
-    "   table.insert(payload, field) ",
-    "   table.insert(payload, value) ",
-    " else      ",
-    "   field = k    ",
-    " end      ",
-    "end ",
+    // " local field, value",
+    // "for i, k in pairs(fields) do ",
+    // " if i%2 == 0 then ",
+    // "   value = k      ",
+    // "   table.insert(payload, field) ",
+    // "   table.insert(payload, value) ",
+    // " else      ",
+    // "   field = k    ",
+    // " end      ",
+    // "end ",
     "redis.call('HMSET', key, unpack(fields)) ",
-    "return payload "
+    "return fields "
 ].join("\n");
 
 var key = "PullNotification:Time";
